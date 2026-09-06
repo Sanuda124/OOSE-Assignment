@@ -27,6 +27,8 @@ public class App
             Screen screen = new Screen ();
             Menu menu = new Menu (input);
 
+            Configure configure = new Configure (input);
+
             int choice = 0;
             while(choice !=3)
             {
@@ -38,6 +40,11 @@ public class App
                     {
                         manager.estimate (wbs, settings.getNumber());
                     }
+                else if(choice ==2 )
+                    {
+                        configure.change(settings);
+                        estimate.setRule(settings.getRule());
+                    }    
                 
             }
 
