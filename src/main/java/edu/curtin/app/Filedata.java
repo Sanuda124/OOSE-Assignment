@@ -17,7 +17,7 @@ public class Filedata
 
     public String[] split (String line)
     {
-        String [] x = line.split(";");
+        String [] x = line.split(";", -1);
 
         for (int i = 0; i< x.length; i++)
         {
