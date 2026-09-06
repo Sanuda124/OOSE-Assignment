@@ -1,7 +1,6 @@
 package edu.curtin.app;
 
 import java.io.IOException;
-import java.lang.annotation.Retention;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
@@ -31,7 +30,44 @@ public class Filedata
             return new Item (id, text, effort);
         }
         return new Group (id, text);
-        
+
+    }
+
+    public Wbs load (String name) throws IOException
+    {
+        List<String> lines = read (name);
+        Wbs wbs = new Wbs ();
+
+        for (String line : lines)
+        {
+            
+        String [] x = split (line);
+        Task task = makeTask(line);
+
+        wbs.add(task);
+        if(x[0].isEmpty())
+        {
+            wbs.addRoot(task);
+        }
+
+        }
+
+        for (String line: lines)
+        {
+            String [] x = split (line);
+
+            if (!x[0].isEmpty())
+            {
+                Task task = wbs.get(x[1]);
+                wbs.join(x[0], task);
+            }
+
+        }
+
+        return (wbs);
+
+
+
     }
 
 
