@@ -15,7 +15,14 @@ public class Filedata
 
     public String[] split (String line)
     {
-        return line.split(";");
+        String [] x = line.split(";");
+
+        for (int i = 0; i< x.length; i++)
+        {
+            x[i] = x[i].trim();
+        }
+        return x;
+        
     }
 
 
