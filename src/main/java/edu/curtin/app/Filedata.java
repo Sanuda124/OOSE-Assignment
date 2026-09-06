@@ -18,6 +18,23 @@ public class Filedata
         return line.split(";");
     }
 
+    public Task makeTask (String line)
+    {
+        String [] x = split (line);
+        
+        String id = x[1];
+        String text = x[2];
+
+        if(x.length == 4)
+        {
+            int effort = Integer.parseInt(x[3]);
+            return new Item (id, text, effort);
+        }
+        return new Group (id, text);
+        
+    }
+
+
 
     
 }
