@@ -47,6 +47,7 @@ public class App
                     }    
                 
             }
+            file.save(args[0], wbs);
 
         
         }
