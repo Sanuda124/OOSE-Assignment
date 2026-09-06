@@ -16,6 +16,12 @@ public class Configure
         System.out.print("Number of estimators: ");
         int number = input.nextInt();
 
+        while(number < 1)
+        {
+            System.out.print("Enter 1 or more: ");
+            number = input.nextInt();
+        }
+
         settings.setNumber(number);
 
         System.out.println("1. Highest");
