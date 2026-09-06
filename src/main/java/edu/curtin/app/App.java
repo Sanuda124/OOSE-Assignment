@@ -14,12 +14,7 @@ public class App
             Wbs wbs = file.load (args[0]);
 
             try (Scanner input = new Scanner (System.in))
-            {
-                Menu menu = new Menu(input);
-
-                int choice = menu.show();
-
-                if (choice == 1)
+            
             {
                 Settings settings = new Settings();
 
@@ -29,10 +24,21 @@ public class App
                 Estimate estimate = new Estimate (settings.getRule(), input);
                 EstimateManager manager = new EstimateManager(estimate);
 
-                manager.estimate (wbs, settings.getNumber());
-
             Screen screen = new Screen ();
-            screen.show(wbs);
+            Menu menu = new Menu (input);
+
+            int choice = 0;
+            while(choice !=3)
+            {
+                screen.show(wbs);
+
+                choice = menu.show();
+
+                if(choice ==1)
+                    {
+                        manager.estimate (wbs, settings.getNumber());
+                    }
+                
             }
 
         
