@@ -18,7 +18,36 @@ public class Menu
         System.out.println("3. Quit");
         System.out.println("Choose: ");
 
-        return input.nextInt();
+        while(!input.hasNextInt())
+        {
+            System.out.println("Enter 1, 2 or 3");
+            input.next();
+            System.out.print("Choose: ");
+
+        
+        }
+         int choice = input.nextInt();
+        
+
+        while(choice < 1 || choice >3)
+        {
+            System.out.println("Enter 1, 2 or 3");
+            System.out.print("Choose: ");
+
+            while (!input.hasNextInt())
+            {
+                System.out.println("Enter 1, 2 or 3");
+                input.next();
+                System.out.print("Choose: ");
+
+            }
+            choice = input.nextInt();
+
+            
+        }
+        return choice;
+
+
     }
     
 }
