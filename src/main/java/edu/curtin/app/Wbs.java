@@ -40,6 +40,33 @@ public class Wbs
         }
     }
 
+     public int getEffort()
+    {
+        int total = 0 ;
+        for (Task task : roots)
+        {
+            total += task.getEffort();
+        }
+        return total;
+    }
+
+    public int getUnknown()
+    {
+        int total = 0;
+        for (Task task : tasks.values())
+        {
+            if(task instanceof Item)
+            {
+                Item item = (Item) task;
+                if(!item.hasEffort())
+                {
+                    total ++;
+                }
+            }
+        }
+        return  total;
+    }
+
 
 
     
