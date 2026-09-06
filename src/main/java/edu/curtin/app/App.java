@@ -1,10 +1,7 @@
 package edu.curtin.app;
 
-/**
- * Entry point into the application. To change the package, and/or the name of this class, make
- * sure to update the 'mainClass = ...' line in build.gradle.kts.
- */
 import java.io.IOException;
+import java.util.Scanner;
 
 public class App
 {
@@ -12,11 +9,26 @@ public class App
     {
         Filedata file = new Filedata();
 
-        try{
+        try
+        {
             Wbs wbs = file.load (args[0]);
-            System.out.println(wbs.getRoots().size());
+
+            try(Scanner input = new Scanner (System.in))
+            {
+
+            EstimateRule rule = new HighestRule();
+            Estimate estimate = new Estimate(rule, input);
+            EstimateManager manager = new EstimateManager(estimate);
+
+            manager.estimate(wbs,3);
+
+            Screen screen = new Screen ();
+            screen.show(wbs);
+
+        
         }
-        catch(java.io.IOException e)
+    }
+        catch(IOException e)
         {
             System.out.println(e.getMessage());
         }

@@ -18,56 +18,68 @@ public class Filedata
         return line.split(";");
     }
 
-    public Task makeTask (String line)
-    {
-        String [] x = split (line);
-        
-        String id = x[1];
-        String text = x[2];
 
-        if(x.length == 4)
-        {
-            int effort = Integer.parseInt(x[3]);
-            return new Item (id, text, effort);
-        }
-        return new Group (id, text);
-
-    }
 
     public Wbs load (String name) throws IOException
     {
         List<String> lines = read (name);
         Wbs wbs = new Wbs ();
 
-        for (String line : lines)
-        {
-            
-        String [] x = split (line);
-        Task task = makeTask(line);
-
-        wbs.add(task);
-        if(x[0].isEmpty())
-        {
-            wbs.addRoot(task);
-        }
-
-        }
-
         for (String line: lines)
         {
             String [] x = split (line);
+            Task task;
+            if(isParent(lines,x[1]))
+            {
+                task = new Group(x[1], x[2]);
+            }
+            else if (x.length ==4)
+            {
+                task = new Item (x[1], x[2], Integer.parseInt(x[3]));
+            }
+            else
+            {
+                task = new Item(x[1], x[2], null);
+            }
+            wbs.add(task);
+
+            if (x[0].isEmpty())
+            {
+                wbs.addRoot(task);
+            }
+
+        }
+
+        for (String line : lines)
+        {
+            String[] x = split (line);
 
             if (!x[0].isEmpty())
             {
                 Task task = wbs.get(x[1]);
                 wbs.join(x[0], task);
             }
-
         }
-
         return (wbs);
 
     }
+
+    private  boolean isParent(List<String> lines, String id)
+    {
+        for (String line : lines)
+        {
+            String [] x = split (line);
+
+            if (x[0].equals(id))
+            {
+                return true;
+            }
+        }
+        return false;
+
+    }
+
+
 
     public void save (String name, Wbs wbs) throws IOException
     {
