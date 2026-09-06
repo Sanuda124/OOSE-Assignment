@@ -17,7 +17,7 @@ public class Configure
         
         while(!input.hasNextInt())
         {
-            System.out.println("Enter 1, 2 or 3");
+            System.out.println("Enter a number");
             input.next();
             System.out.print("Choose: ");
 
