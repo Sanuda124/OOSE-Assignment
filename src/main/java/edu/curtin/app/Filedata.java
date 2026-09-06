@@ -45,6 +45,11 @@ public class Filedata
 
             if(isParent(lines,x[1]))
             {
+                if(x.length == 4)
+                    {
+                        throw new InvalidWbsException("Group has effort: " + x[1]);
+                    }
+                
                 task = new Group(x[1], x[2]);
             }
             else if (x.length ==4)
@@ -58,7 +63,7 @@ public class Filedata
                         throw new InvalidWbsException("Invalid effort: " + x[3]);
                     }
                 
-                task = new Item (x[1], x[2], Integer.parseInt(x[3]));
+                task = new Item (x[1], x[2],effort);
                 }
             catch(NumberFormatException e)
             {
