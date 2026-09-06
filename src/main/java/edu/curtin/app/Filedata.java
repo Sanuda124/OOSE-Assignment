@@ -69,6 +69,12 @@ public class Filedata
             if (!x[0].isEmpty())
             {
                 Task task = wbs.get(x[1]);
+                Task parent = wbs.get(x[0]);
+
+                if(parent == null)
+                {
+                    throw new InvalidWbsException("Missing parent ID: " + x[0]);
+                }
                 wbs.join(x[0], task);
             }
         }
