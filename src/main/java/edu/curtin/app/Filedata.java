@@ -13,5 +13,11 @@ public class Filedata
         return Files.readAllLines(Path.of(name));
     }
 
+    public String[] split (String line)
+    {
+        return line.split(";");
+    }
+
+
     
 }
