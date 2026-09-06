@@ -14,11 +14,27 @@ public class Configure
     public void change (Settings settings)
     {
         System.out.print("Number of estimators: ");
+        
+        while(!input.hasNextInt())
+        {
+            System.out.println("Enter 1, 2 or 3");
+            input.next();
+            System.out.print("Choose: ");
+
+        
+        }
+        
         int number = input.nextInt();
 
         while(number < 1)
         {
             System.out.print("Enter 1 or more: ");
+            while (!input.hasNextInt())
+            {
+                System.out.println("Enter a number.");
+                input.next();
+                System.out.print("Enter 1 or more");
+            }
             number = input.nextInt();
         }
 
@@ -29,7 +45,33 @@ public class Configure
         System.out.println("3. Discuss");
         System.out.println("Choose: ");
 
-        int choice = input.nextInt();
+         while(!input.hasNextInt())
+        {
+            System.out.println("Enter 1, 2 or 3");
+            input.next();
+            System.out.print("Choose: ");
+
+        
+        }
+         int choice = input.nextInt();
+        
+
+        while(choice < 1 || choice >3)
+        {
+            System.out.println("Enter 1, 2 or 3");
+            System.out.print("Choose: ");
+
+            while (!input.hasNextInt())
+            {
+                System.out.println("Enter 1, 2 or 3");
+                input.next();
+                System.out.print("Choose: ");
+
+            }
+            choice = input.nextInt();
+
+            
+        }
 
         if(choice ==1)
         {
