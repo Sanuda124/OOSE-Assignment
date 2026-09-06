@@ -3,6 +3,7 @@ package edu.curtin.app;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Filedata
@@ -66,8 +67,47 @@ public class Filedata
 
         return (wbs);
 
+    }
 
+    public void save (String name, Wbs wbs) throws IOException
+    {
+        List<String> lines = new ArrayList<>();
 
+        for (Task task : wbs.getRoots())
+        {
+            addLines(lines, task, "");
+        }
+
+        Files.write (Path.of(name), lines);
+    }
+
+    private void  addLines(List <String> lines, Task task, String parent)
+    {
+        String line = parent + ";" + task.getId() +";" + task.getText();
+
+        if (task instanceof Item)
+        {
+
+        Item item = (Item) task;
+
+        if (item.hasEffort())
+        {
+            line += ";" + item.getEffort();
+        }
+        }
+
+        lines.add (line);
+
+        if(task instanceof Group)
+        {
+            Group group = (Group) task;
+
+            for (Task child : group.getKids())
+            {
+                addLines(lines, child, task.getId());
+
+            }
+        }
     }
 
 
