@@ -36,7 +36,8 @@ public class Filedata
         {
             String [] x = split (line);
 
-            if (x.length < 3)
+            if (x.length < 3 || x.length > 4)
+                
             {
                 throw new InvalidWbsException("Invalid WBS line " + line);
             }
