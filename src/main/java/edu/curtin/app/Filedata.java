@@ -28,7 +28,14 @@ public class Filedata
         for (String line: lines)
         {
             String [] x = split (line);
+
+            if (x.length < 3)
+            {
+                throw new InvalidWbsException("Invalid WBS line " + line);
+            }
+
             Task task;
+            
             if(isParent(lines,x[1]))
             {
                 task = new Group(x[1], x[2]);
