@@ -15,12 +15,15 @@ public class App
 
             try(Scanner input = new Scanner (System.in))
             {
+                Settings settings = new Settings();
 
-            EstimateRule rule = new HighestRule();
-            Estimate estimate = new Estimate(rule, input);
-            EstimateManager manager = new EstimateManager(estimate);
+                EstimateRule rule = new HighestRule();
+                settings.setRule(rule);
 
-            manager.estimate(wbs,3);
+                Estimate estimate = new Estimate (settings.getRule(), input);
+                EstimateManager manager = new EstimateManager(estimate);
+
+                manager.estimate (wbs, settings.getNumber());
 
             Screen screen = new Screen ();
             screen.show(wbs);
