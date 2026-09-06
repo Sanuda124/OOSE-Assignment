@@ -7,4 +7,8 @@ public class InvalidWbsException extends Exception
         super(message);
     }
     
+    public InvalidWbsException (String message, Throwable cause)
+    {
+        super(message,cause);
+    }
 }

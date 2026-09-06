@@ -42,7 +42,21 @@ public class Filedata
             }
             else if (x.length ==4)
             {
+                try
+                {
+                    int effort = Integer.parseInt(x[3]);
+
+                    if (effort <= 0)
+                    {
+                        throw new InvalidWbsException("Invalid effort: " + x[3]);
+                    }
+                
                 task = new Item (x[1], x[2], Integer.parseInt(x[3]));
+                }
+            catch(NumberFormatException e)
+            {
+                throw new InvalidWbsException("Invalid effort: " + x[3],e);
+            }
             }
             else
             {
