@@ -37,4 +37,10 @@ public class Estimate
         }
         return estimates;
     }
+
+    public int getFinal (int number)
+    {
+        List<Integer> estimates = getEstimates(number);
+        return choose (estimates);
+    }
 }
