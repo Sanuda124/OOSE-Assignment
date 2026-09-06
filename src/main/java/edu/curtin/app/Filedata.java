@@ -37,9 +37,14 @@ public class Filedata
             String [] x = split (line);
 
             if (x.length < 3 || x.length > 4)
-                
+
             {
                 throw new InvalidWbsException("Invalid WBS line " + line);
+            }
+            if (x[1].isEmpty() || x[2].isEmpty())
+            {
+                throw new InvalidWbsException("Missing ID or description " + line);
+
             }
 
             Task task;
