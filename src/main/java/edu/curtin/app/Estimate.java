@@ -1,14 +1,18 @@
 package edu.curtin.app;
 
 import java.util.List;
+import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Estimate 
 {
     private EstimateRule rule;
+    private Scanner input;
 
-    public Estimate(EstimateRule rule)
+    public Estimate(EstimateRule rule, Scanner input)
     {
         this.rule = rule;
+        this.input = input;
     }
 
     public int choose (List<Integer> estimates)
@@ -19,5 +23,18 @@ public class Estimate
     public void setRule(EstimateRule rule)
     {
         this.rule = rule;
+    }
+
+    public List<Integer> getEstimates(int number)
+    {
+        List<Integer> estimates = new ArrayList<>();
+
+        for (int i = 0; i< number; i++)
+        {
+            System.out.print("Estimate: ") ;
+            estimates.add(input.nextInt());
+            
+        }
+        return estimates;
     }
 }
