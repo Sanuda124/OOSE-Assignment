@@ -13,7 +13,13 @@ public class App
         {
             Wbs wbs = file.load (args[0]);
 
-            try(Scanner input = new Scanner (System.in))
+            try (Scanner input = new Scanner (System.in))
+            {
+                Menu menu = new Menu(input);
+
+                int choice = menu.show();
+
+                if (choice == 1)
             {
                 Settings settings = new Settings();
 
@@ -27,6 +33,7 @@ public class App
 
             Screen screen = new Screen ();
             screen.show(wbs);
+            }
 
         
         }
