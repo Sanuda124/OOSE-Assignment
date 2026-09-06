@@ -35,7 +35,7 @@ public class Filedata
             }
 
             Task task;
-            
+
             if(isParent(lines,x[1]))
             {
                 task = new Group(x[1], x[2]);
@@ -47,6 +47,11 @@ public class Filedata
             else
             {
                 task = new Item(x[1], x[2], null);
+            }
+
+            if(wbs.get(x[1]) !=null)
+            {
+                throw new InvalidWbsException("Duplicate task ID: " + x[1]);
             }
             wbs.add(task);
 
