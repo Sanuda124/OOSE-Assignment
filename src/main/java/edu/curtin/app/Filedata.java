@@ -5,9 +5,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class Filedata
-{
+{ 
+    private static final Logger LOG = Logger.getLogger(Filedata.class.getName());
     public List<String> read (String name) throws IOException
     {
         return Files.readAllLines(Path.of(name));
@@ -30,6 +32,7 @@ public class Filedata
     public Wbs load (String name) throws IOException, InvalidWbsException
     {
         List<String> lines = read (name);
+        LOG.info(() -> "Loading WBS file: " + name);
         Wbs wbs = new Wbs ();
 
         for (String line: lines)
