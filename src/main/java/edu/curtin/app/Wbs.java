@@ -30,6 +30,15 @@ public class Wbs
     {
         return roots;
     }
+    public void join (String parentId, Task child)
+    {
+        Task parent = get (parentId);
+
+        if (parent instanceof Group)
+        {
+            ((Group) parent).add(child);
+        }
+    }
 
 
 
