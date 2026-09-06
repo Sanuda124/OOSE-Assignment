@@ -51,7 +51,7 @@ public class App
         
         }
     }
-        catch(IOException e)
+        catch(IOException | InvalidWbsException e)
         {
             System.out.println(e.getMessage());
         }

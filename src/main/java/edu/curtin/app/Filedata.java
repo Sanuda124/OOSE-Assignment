@@ -20,7 +20,7 @@ public class Filedata
 
 
 
-    public Wbs load (String name) throws IOException
+    public Wbs load (String name) throws IOException, InvalidWbsException
     {
         List<String> lines = read (name);
         Wbs wbs = new Wbs ();
