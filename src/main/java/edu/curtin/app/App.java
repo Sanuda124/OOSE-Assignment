@@ -17,7 +17,7 @@ public class App
             {
                 Settings settings = new Settings();
 
-                EstimateRule rule = new HighestRule();
+                EstimateRule rule = new TalkRule(input);
                 settings.setRule(rule);
 
                 Estimate estimate = new Estimate (settings.getRule(), input);
