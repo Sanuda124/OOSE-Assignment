@@ -17,7 +17,19 @@ public class Screen
 
     private void showTask (Task task, int level)
     {
-        System.out.println(" ".repeat(level) + task.getText());
+        String text = task.getText();
+
+        if (task instanceof Item)
+        {
+            Item item = (Item) task;
+
+            if(item.hasEffort())
+            {
+                text += " - " + item.getEffort();
+            }
+        }
+
+        System.out.println(" ".repeat(level) + text);
 
         if (task instanceof Group)
         {
