@@ -38,7 +38,10 @@ public class App
 
                 if(choice ==1)
                     {
-                        manager.estimate (wbs, settings.getNumber());
+                        System.out.print("Task ID: ");
+                        String id = input.next();
+
+                        manager.estimate (wbs, id,  settings.getNumber());
                     }
                 else if(choice ==2 )
                     {

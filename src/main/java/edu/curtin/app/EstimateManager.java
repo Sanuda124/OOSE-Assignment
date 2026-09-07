@@ -8,11 +8,17 @@ public class EstimateManager
     {
         this.estimate =estimate;
     }
-    public void estimate(Wbs wbs, int number)
+    public void estimate(Wbs wbs, String id, int number)
     {
-        for (Task task : wbs.getRoots())
+        Task task = wbs.get(id);
+        if(task != null)
         {
             doTask(task, number);
+        }
+        else
+        {
+            System.out.println("Task not found.");
+
         }
     }
 
