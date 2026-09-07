@@ -29,7 +29,7 @@ public class Screen
             }
         }
 
-        System.out.println(" ".repeat(level) + text);
+        System.out.println(" ".repeat(level) + task.getId() + " - " + text);
 
         if (task instanceof Group)
         {

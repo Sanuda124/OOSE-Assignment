@@ -68,6 +68,7 @@ public class Filedata
                     task = new Item (x[1], x[2], null);
                 }
                 else 
+                {
                 try
                 {
                     int effort = Integer.parseInt(x[3]);
@@ -77,12 +78,14 @@ public class Filedata
                         throw new InvalidWbsException("Invalid effort: " + x[3]);
                     }
                 
+                
                 task = new Item (x[1], x[2],effort);
                 }
             catch(NumberFormatException e)
             {
                 throw new InvalidWbsException("Invalid effort: " + x[3],e);
             }
+                }
             }
             else
             {
