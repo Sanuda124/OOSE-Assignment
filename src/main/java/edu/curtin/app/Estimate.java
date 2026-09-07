@@ -41,6 +41,22 @@ public class Estimate
     public int getFinal (int number)
     {
         List<Integer> estimates = getEstimates(number);
+        System.out.println("Estimates: " + estimates);
+
+        boolean same = true;
+
+        for (int i =1; i < estimates.size(); i++)
+        {
+            if(!estimates.get(i).equals(estimates.get(0)))
+            {
+                same = false;
+            }
+        }
+        if(same)
+        {
+            return estimates.get(0);
+        }
+        
         return choose (estimates);
     }
 }
