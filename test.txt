@@ -1,6 +1,18 @@
-;1;My Project
-1;2;Website
-2;3;Home Page;25
-2;4;Login Page;8
-1;5;Database
-5;6;Database Setup;10
+;A;Market research;10
+;B;Prototyping;45
+;C;Game design
+C;D;Identify core game concepts;15
+C;E;Develop basic storyline;25
+C;F;Develop game world and mechanics;55
+C;G;Specify game characters and abilities;20
+;H;Game implementation
+H;I;Artwork;90
+H;J;Coding
+J;K;Core game logic
+J;L;Networking;35
+J;M;Player interface
+;N;Testing
+N;O;Functionality
+N;P;Playability
+N;Q;Rework
+;R;Release

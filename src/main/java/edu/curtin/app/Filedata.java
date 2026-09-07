@@ -63,6 +63,11 @@ public class Filedata
             }
             else if (x.length ==4)
             {
+                if(x[3].isEmpty())
+                {
+                    task = new Item (x[1], x[2], null);
+                }
+                else 
                 try
                 {
                     int effort = Integer.parseInt(x[3]);
