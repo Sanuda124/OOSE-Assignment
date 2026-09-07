@@ -20,6 +20,7 @@ public abstract class Task
     {
         return  text;
     }
+    //each type of task calculates its effort differently
     public abstract int getEffort();
     
     

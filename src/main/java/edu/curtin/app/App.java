@@ -7,12 +7,15 @@ public class App
 {
     public static void main(String[] args)
     {
+        //loading and saving the WBS
         Filedata file = new Filedata();
 
         try
         {
+            
             Wbs wbs = file.load (args[0]);
 
+            //get the input from the user
             try (Scanner input = new Scanner (System.in))
             
             {
@@ -30,6 +33,8 @@ public class App
             Configure configure = new Configure (input);
 
             int choice = 0;
+
+            //keep showing the menu until choose quit
             while(choice !=3)
             {
                 screen.show(wbs);
@@ -45,11 +50,15 @@ public class App
                     }
                 else if(choice ==2 )
                     {
+                        //allow to change the number of estimate
                         configure.change(settings);
+
+                        //update estimate with new selected estimates
                         estimate.setRule(settings.getRule());
                     }    
                 
             }
+            //save the update Wbs before quitng
             file.save(args[0], wbs);
 
         

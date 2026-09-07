@@ -8,6 +8,7 @@ import java.util.Map;
 
 public class Wbs 
 {
+    //stores task by their Id 
     private final Map<String, Task> tasks = new HashMap<>();
     private final List<Task> roots = new ArrayList<>();
 
@@ -18,6 +19,7 @@ public class Wbs
 
     public Task get (String id)
     {
+        //find a task using it id
         return tasks.get(id);
     }
 
@@ -42,6 +44,7 @@ public class Wbs
 
      public int getEffort()
     {
+        //calculate the total effort from the root tasks
         int total = 0 ;
         for (Task task : roots)
         {
@@ -52,6 +55,7 @@ public class Wbs
 
     public int getUnknown()
     {
+        //count leaf tasks that dont have an effort value
         int total = 0;
         for (Task task : tasks.values())
         {

@@ -2,6 +2,7 @@ package edu.curtin.app;
 
 public class EstimateManager 
 {
+    //estimating tasks in the wbs
     private Estimate estimate;
 
     public EstimateManager(Estimate estimate)
@@ -10,6 +11,7 @@ public class EstimateManager
     }
     public void estimate(Wbs wbs, String id, int number)
     {
+        //find the task using IDs
         Task task = wbs.get(id);
         if(task != null)
         {
@@ -24,6 +26,7 @@ public class EstimateManager
 
     private void doTask(Task task , int number)
     {
+        //estimate the task if it is unknown leaf task
         if (task instanceof Item)
         {
             Item item = (Item ) task;
@@ -35,6 +38,7 @@ public class EstimateManager
             }
         }
 
+        //recursively estimate all children of a group
         if (task instanceof Group)
         {
             Group group = (Group) task;

@@ -2,6 +2,7 @@ package edu.curtin.app;
 
 public class Settings 
 {
+    //default number of estimators 3
     private int number = 3;
     private EstimateRule rule;
     public Settings()
@@ -27,6 +28,7 @@ public class Settings
 
     public void setRule(EstimateRule rule)
     {
+        //change the current strategy
         this.rule = rule;
     }
     

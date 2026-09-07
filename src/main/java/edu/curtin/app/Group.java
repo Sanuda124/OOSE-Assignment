@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Group extends Task
 {
+    //stores the child tasks inside the group
     private final List<Task> kids = new ArrayList<>();
 
     public Group(String id ,String text)
@@ -12,6 +13,7 @@ public class Group extends Task
         super(id,text);
     }
 
+    //add a child task to a group
     public void add (Task task)
     {
         kids.add(task);
@@ -29,6 +31,7 @@ public class Group extends Task
     {
         int total = 0;
 
+        //add the effort of all child tasks
         for (Task task : kids)
         {
             total += task.getEffort();

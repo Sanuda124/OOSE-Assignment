@@ -13,6 +13,7 @@ public class Configure
 
     public void change (Settings settings)
     {
+        //get the number of estimators from the user
         System.out.print("Number of estimators: ");
         
         while(!input.hasNextInt())
@@ -26,6 +27,7 @@ public class Configure
         
         int number = input.nextInt();
 
+        //The number of estimators must be < 1
         while(number < 1)
         {
             System.out.print("Enter 1 or more: ");
@@ -39,7 +41,8 @@ public class Configure
         }
 
         settings.setNumber(number);
-
+        
+        //show available strategies
         System.out.println("1. Highest");
         System.out.println("2. Median");
         System.out.println("3. Discuss");
@@ -47,6 +50,7 @@ public class Configure
 
          while(!input.hasNextInt())
         {
+            // only choices 1 2 3 are valid
             System.out.println("Enter 1, 2 or 3");
             input.next();
             System.out.print("Choose: ");
@@ -72,7 +76,8 @@ public class Configure
 
             
         }
-
+         
+        //select the strategy based on the users choice
         if(choice ==1)
         {
             settings.setRule(new HighestRule());

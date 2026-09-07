@@ -4,11 +4,13 @@ public class Screen
 {
     public void show (Wbs wbs)
     {
+        //display all root tasks and their children
         for (Task task : wbs.getRoots())
         {
             showTask(task, 0);
         }
 
+        //display the wbs summary
         System.out.println();
         System.out.println("Total effort: "+ wbs.getEffort());
         System.out.println("Unknown tasks: " + wbs.getUnknown());
@@ -35,6 +37,7 @@ public class Screen
         {
             Group group = (Group) task;
 
+            //recursively display all child tasks
             for (Task child : group.getKids())
             {
                 showTask (child, level + 1);

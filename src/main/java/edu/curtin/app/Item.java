@@ -2,6 +2,7 @@ package edu.curtin.app;
 
 public class Item extends Task
 {
+    //stroes the effort for the task
     private Integer effort;
 
     public Item (String id, String text, Integer effort)
@@ -13,6 +14,7 @@ public class Item extends Task
     @Override 
     public  int getEffort()
     {
+    
         if(effort == null)
         {
             return 0;

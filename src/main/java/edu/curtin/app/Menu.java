@@ -12,12 +12,14 @@ public class Menu
     }
     public int show()
     {
+        //Display the available menu options
         System.out.println();
         System.out.println("1. Estimate effort");
         System.out.println("2. Configure");
         System.out.println("3. Quit");
         System.out.println("Choose: ");
 
+        //check the user enter a number
         while(!input.hasNextInt())
         {
             System.out.println("Enter 1, 2 or 3");
@@ -29,6 +31,7 @@ public class Menu
          int choice = input.nextInt();
         
 
+         //only choices 1 2 3 are valid
         while(choice < 1 || choice >3)
         {
             System.out.println("Enter 1, 2 or 3");

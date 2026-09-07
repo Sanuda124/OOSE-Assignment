@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class Estimate 
 {
+    //stores the current reconciliation strategy
     private EstimateRule rule;
     private Scanner input;
 
@@ -17,11 +18,13 @@ public class Estimate
 
     public int choose (List<Integer> estimates)
     {
+        //use the selected strategy to chose the final estimate
         return rule.choose(estimates);
     }
     
     public void setRule(EstimateRule rule)
     {
+        //change the strategy
         this.rule = rule;
     }
 
@@ -29,9 +32,12 @@ public class Estimate
     {
         List<Integer> estimates = new ArrayList<>();
 
+        //get the required number of estimated from the user
         for (int i = 0; i< number; i++)
         {
             System.out.print("Estimate: ") ;
+
+            //check the user enters a number
             while(!input.hasNextInt())
             {
                 System.out.println("Enter a number");
@@ -51,6 +57,7 @@ public class Estimate
 
         boolean same = true;
 
+        //check all estimates are the same
         for (int i =1; i < estimates.size(); i++)
         {
             if(!estimates.get(i).equals(estimates.get(0)))
@@ -62,7 +69,7 @@ public class Estimate
         {
             return estimates.get(0);
         }
-
+        
         return choose (estimates);
     }
 }
