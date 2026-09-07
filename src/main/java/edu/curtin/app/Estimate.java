@@ -32,6 +32,12 @@ public class Estimate
         for (int i = 0; i< number; i++)
         {
             System.out.print("Estimate: ") ;
+            while(!input.hasNextInt())
+            {
+                System.out.println("Enter a number");
+                input.next();
+                System.out.print("Estimate: ");
+            }
             estimates.add(input.nextInt());
             
         }
@@ -56,7 +62,7 @@ public class Estimate
         {
             return estimates.get(0);
         }
-        
+
         return choose (estimates);
     }
 }
