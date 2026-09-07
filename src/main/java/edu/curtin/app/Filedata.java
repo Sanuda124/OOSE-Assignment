@@ -32,6 +32,7 @@ public class Filedata
     public Wbs load (String name) throws IOException, InvalidWbsException
     {
         List<String> lines = read (name);
+
         LOG.info(() -> "Loading WBS file: " + name);
         Wbs wbs = new Wbs ();
 
@@ -150,6 +151,7 @@ public class Filedata
         {
             addLines(lines, task, "");
         }
+         LOG.info(() -> "Saving WBS file: " + name);
 
         Files.write (Path.of(name), lines);
     }
